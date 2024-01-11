@@ -1,1 +1,1 @@
-ps_study
+PS_study
