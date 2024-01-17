@@ -13,7 +13,7 @@ while len(deq) != 0:
 
     num = ballon[next_num-1]
     
-    if num >= 0:
+    if num > 0:
         deq.rotate(num-1)
     else:
         deq.rotate(num)
