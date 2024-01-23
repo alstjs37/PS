@@ -4,4 +4,4 @@ graph = []
 for _ in range(n):
     graph.append(list(input()))
 
-print(graph)
+print(graph) 
