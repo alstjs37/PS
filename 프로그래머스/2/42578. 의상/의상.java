@@ -4,28 +4,21 @@ class Solution {
     public int solution(String[][] clothes) {
         int answer = 1;
         
-        Set<String> set = new HashSet<>();
-        List<String> list = new ArrayList<>();
-        List<Integer> cntList = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>();
         
         for(String[] clothe: clothes) {
-            set.add(clothe[1]);
-        }
-        
-        for(String elem: set) {
-            for(String[] clothe: clothes) {
-                if(elem.equals(clothe[1])) {
-                    list.add(clothe[0]);
-                }
+            if(!map.containsKey(clothe[1])) {
+                map.put(clothe[1], 1);
+            } else {
+                map.put(clothe[1], map.get(clothe[1])+1);
             }
-            cntList.add(list.size());
-            list.clear();
         }
         
-        for(int num: cntList) {
-            answer *= (num+1);
+        Iterator<Integer> it = map.values().iterator();
+        while(it.hasNext()) {
+            answer *= it.next().intValue() + 1;
         }
         
-        return answer - 1;
+        return answer-1;
     }
 }
